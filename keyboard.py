@@ -9,7 +9,7 @@ x = width/2
 y = height/2
 x_change = 0
 y_change = 0
-speed = 0.1
+speed = 0.2
 flag = "left";
 
 
