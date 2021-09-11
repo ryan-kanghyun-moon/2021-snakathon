@@ -9,7 +9,7 @@ x = width/2
 y = height/2
 x_change = 0
 y_change = 0
-speed = 0.3
+speed = 0.5
 
 
 screen = pygame.display.set_mode((width,height))
