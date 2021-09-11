@@ -9,7 +9,8 @@ x = width/2
 y = height/2
 x_change = 0
 y_change = 0
-speed = 0.5
+speed = 0.1
+flag = "left";
 
 
 screen = pygame.display.set_mode((width,height))
@@ -35,23 +36,38 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        
+
+        # even when keyboard isn't pressed, it still moves in the previous direction
+        if flag == "left":
+            x_change = -speed
+        elif flag == "right":
+            x_change = speed
+        elif flag == "up":
+            y_change = -speed
+        else:
+            y_change = speed
+
         # when keystroke is pressed, move by speed
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 x_change = -speed
+                flag = "left"
             if event.key == pygame.K_RIGHT:
                 x_change = speed
+                flag = "right"
             if event.key == pygame.K_UP:
                 y_change = -speed
+                flag = "up"
             if event.key == pygame.K_DOWN:
                 y_change = speed
+                flag = "down"
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 x_change = 0
             if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                 y_change = 0
+
 
 
     x += x_change
