@@ -20,4 +20,4 @@ The game is over when the head of the snake collides with its body or the wall.
 
 ---
 
-**By John Baek/Do, Ryan Moon**
+**By John Baek, John Do, Ryan Moon**
