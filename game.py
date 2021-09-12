@@ -17,52 +17,68 @@ class Game:
     def did_snake_crash(self):
         head = self.snake.get_head()
 
-        if head[0] < 0 or head[0] >= self.width or head[1] < 0 or head[1] >= self.height:
+        if head[0] < 0 or head[0] > self.width - 1 or head[1] < 0 or head[1] > self.height - 1:
+            print("crashed")
             return True
         
         for body in self.snake.get_body():
             if body == head:
+                print("crashed")
                 return True
+        
         
         return False
 
     def move_up(self):
-        tail = self.snake.get_tail()
-        self.snake.move_up()
-      
-        if self.is_food_edible():
-            self.eat(tail)
-       
+        if not self.did_snake_crash():
+            tail = self.snake.get_tail()
+            self.snake.move_up()
+        
+            if self.is_food_edible():
+                self.eat(tail)
+
+        print("up")
+        return self.render()
             
 
     def move_down(self):
-        tail = self.snake.get_tail()
-        self.snake.move_down()
-      
-        if self.is_food_edible():
-            self.eat(tail)
+        if not self.did_snake_crash():
+            tail = self.snake.get_tail()
+            self.snake.move_down()
+        
+            if self.is_food_edible():
+                self.eat(tail)
+
+            return self.render()
        
 
     def move_right(self):
-        tail = self.snake.get_tail()
-        self.snake.move_right()
-      
-        if self.is_food_edible():
-            self.eat(tail)
+        if not self.did_snake_crash():
+            tail = self.snake.get_tail()
+            self.snake.move_right()
+        
+            if self.is_food_edible():
+                self.eat(tail)
+            
+            return self.render()
        
 
     def move_left(self):
-        tail = self.snake.get_tail()
-        self.snake.move_left()
-      
-        if self.is_food_edible():
-            self.eat(tail)
+        if not self.did_snake_crash():
+            tail = self.snake.get_tail()
+            self.snake.move_left()
+        
+            if self.is_food_edible():
+                self.eat(tail)
+
+            return self.render()
        
 
 
 
     def eat(self, tail):
-        self.snake.eat(tail)
+        self.snake.eat(tail[0], tail[1])
+        self.place_new_food()
 
     def place_new_food(self):
         self.food.place_new_food(self.snake, self.width, self.height)
@@ -74,9 +90,12 @@ class Game:
 
 
     def render(self):
-        board = [] * self.width
+        if self.did_snake_crash():
+            return False
+
+        board = [[]] * self.width
         for i in range(self.width):
-            board[i] = ['b'] * self.height
+            board[i - 1] = ['b'] * self.height
         
         for body in self.snake.get_body():
             board[body[0]][body[1]] = 's'
@@ -86,6 +105,8 @@ class Game:
 
         food = self.food.get_coord()
         board[food[0]][food[1]] = 'f'
+        print('1')
+        print(board)
 
         return board
 

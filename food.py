@@ -14,7 +14,7 @@ class Food:
         self.coord = candidates[self.get_rand_int(0, len(candidates) - 1)]
 
     def get_empty_coords(self, snake, width, height):
-        coords = [] * (width * height)
+        coords = [[]] * (width * height)
 
         for x in range(width):
             for y in range(height):
