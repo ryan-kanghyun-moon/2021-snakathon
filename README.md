@@ -5,9 +5,11 @@ The Classic Snake Game we love
 ---
 
 ## How To Play ##
-Download the .exe file through the link below:
+Download the .exe file through **[this link](https://github.com/ryan-kanghyun-moon/2021-snakathon/raw/main/dist/window.exe)** (windows only, linked to the window.exe file in the dist folder in our repo)
 
-**[Link]**
+
+
+
 
 ---
 
