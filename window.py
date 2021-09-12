@@ -6,19 +6,19 @@ import sys
 
 pygame.init()
 
-numOfBlocks = 20 
+numOfBlocks = 25
 block_width_height = 20
-margin = 8  # space between the boxes
+margin = 2  # space between the boxes
 white = (255, 255, 255)
 blues = (0, 0, 0)
-display = pygame.display.set_mode((numOfBlocks*block_width_height+(1+numOfBlocks)*margin,numOfBlocks*block_width_height+(1+numOfBlocks)*margin+20))
+display = pygame.display.set_mode((numOfBlocks*block_width_height+(1+numOfBlocks)*margin,numOfBlocks*block_width_height+(1+numOfBlocks)*margin+30))
 game = Game(numOfBlocks, numOfBlocks)
 board = game.render()
 flag = "up"
 
 snakeLength = 0
 
-frame = 120
+frame = 60
 curr_frame = 0
 opened = True
 crashed = False
@@ -49,7 +49,7 @@ while opened:
                         game = Game(numOfBlocks, numOfBlocks)
                         board = game.render()
                         flag = "up"
-                        bb = pygame.Rect(0, 0, 500, 50)
+                        bb = pygame.Rect(0, 0, 500, 70)
                         pygame.draw.rect(display, (0, 0, 0), bb)
                         
             # return textSurface, textSurface.get_rect()
@@ -120,7 +120,7 @@ while opened:
     for column in range(numOfBlocks):
         x = margin + column * (block_width_height + margin) 
         for row in range(numOfBlocks):
-            y = margin + row * (block_width_height + margin) + 20
+            y = margin + row * (block_width_height + margin) + 30
             rect = pygame.Rect(x, y, block_width_height, block_width_height)
             if(board[column][row] == 'b'):
                 pygame.draw.rect(display, white, rect)

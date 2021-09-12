@@ -18,12 +18,10 @@ class Game:
         head = self.snake.get_head()
 
         if head[0] < 0 or head[0] > self.width - 1 or head[1] < 0 or head[1] > self.height - 1:
-            print("crashed")
             return True
         
         for body in self.snake.get_body():
             if body == head:
-                print("crashed")
                 return True
         
         
@@ -37,7 +35,6 @@ class Game:
             if self.is_food_edible():
                 self.eat(tail)
 
-        print("up")
         return self.render()
             
 
@@ -105,8 +102,7 @@ class Game:
 
         food = self.food.get_coord()
         board[food[0]][food[1]] = 'f'
-        print('1')
-        print(board)
+       
 
         return board
 
