@@ -18,7 +18,6 @@ pygame.display.set_caption("Snake Game")
 icon = pygame.image.load('snake.png')
 pygame.display.set_icon(icon)
 
-
 # snake
 snakeImg = pygame.image.load('snake 2.png')
 
@@ -34,22 +33,18 @@ while running:
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False       
+            running = False
 
         # when keystroke is pressed, move by speed
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 x_change = -speed
-                flag = "left"
             if event.key == pygame.K_RIGHT:
                 x_change = speed
-                flag = "right"
             if event.key == pygame.K_UP:
                 y_change = -speed
-                flag = "up"
             if event.key == pygame.K_DOWN:
                 y_change = speed
-                flag = "down"
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
