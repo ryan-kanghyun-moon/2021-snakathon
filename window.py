@@ -10,7 +10,7 @@ numOfBlocks = 20
 block_width_height = 20
 margin = 8  # space between the boxes
 white = (255, 255, 255)
-blues = (0, 0, 255)
+black = (0, 0, 0)
 display = pygame.display.set_mode((numOfBlocks*block_width_height+(1+numOfBlocks)*margin,numOfBlocks*block_width_height+(1+numOfBlocks)*margin))
 board = [['b','b','b','b','b','b','b','b','b','b'],['b','b','b','b','b','b','b','b','b','b'],['b','b','b','b','b','b','b','b','b','b'],['b','b','f','b','b','b','b','b','b','b'],['b','b','s','s','s','s','s','s','s','b'],['b','b','b','b','b','b','b','b','s','b'],['b','b','b','b','b','b','b','b','b','b'],['b','b','b','b','b','b','b','b','b','b'],['b','b','b','b','b','b','b','b','b','b'],['b','b','b','b','b','b','b','b','b','b']]
 
@@ -65,7 +65,7 @@ while opened:
                 pygame.draw.rect(display, (red,green,blue), rect)
                 snakePosition += 1
             if(board[column][row] == 'f'):
-                pygame.draw.rect(display, blues, rect)
+                pygame.draw.rect(display, black, rect)
             
             
 
