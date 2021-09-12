@@ -21,10 +21,14 @@ class Food:
                coords[y * width + x] = [x, y] 
 
         for body in snake.get_body():
-            coords.pop(body[1] * width + body[0])
+            pos = body[1] * width + body[0]
+            if pos < len(coords):
+                coords.pop(pos)
         
         head = snake.get_head()
-        coords.pop(head[1] * width + head[0])
+        pos = head[1] * width + head[0]
+        if pos < len(coords):
+            coords.pop(pos)
 
         return coords
 

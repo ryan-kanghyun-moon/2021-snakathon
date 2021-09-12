@@ -28,7 +28,7 @@ while opened:
             score = 0 
             if snakeLength != 0: 
                 score = snakeLength - 4
-            textSurface = textFont.render("Crashed!. Press Space to restart. " + "final score: " + str(score), False, (255,255,255))
+            textSurface = textFont.render("Crashed! Press Space to restart. " + "final score: " + str(score), False, (255,255,255))
             # return textSurface, textSurface.get_rect()
             textRect = textSurface.get_rect()
             
@@ -71,16 +71,16 @@ while opened:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                board = game.move_left()
+                # board = game.move_left()
                 flag = "left"
             if event.key == pygame.K_RIGHT:
-                board = game.move_right()
+                # board = game.move_right()
                 flag = "right"
             if event.key == pygame.K_UP:
-                board = game.move_up()
+                # board = game.move_up()
                 flag = "up"
             if event.key == pygame.K_DOWN:
-                board = game.move_down()
+                # board = game.move_down()
                 flag = "down"
 
     if (curr_frame == frame):
@@ -142,8 +142,8 @@ while opened:
                 snakePosition += 1
             elif(board[column][row] == 'f'):
                 pygame.draw.rect(display, blues, rect)
-            elif(board[column][row] == 'w'):
-                pygame.draw.rect(display, (0,0,0), rect)
+            # elif(board[column][row] == 'w'):
+            #     pygame.draw.rect(display, (0,0,0), rect)
             
    
 
