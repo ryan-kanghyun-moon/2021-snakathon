@@ -1,6 +1,4 @@
 import pygame
-import numpy as np
-import time
 from game import Game
 import sys
 
@@ -26,11 +24,11 @@ while opened:
 
     if crashed == True:
         while crashed:
-            textFont = pygame.font.SysFont("comicsansms",20)
+            textFont = pygame.font.SysFont("dejavusans",20)
             score = 0 
             if snakeLength != 0: 
                 score = snakeLength - 4
-            textSurface = textFont.render("Crashed!. Press Space to restart. " + "final score: " + str(score), False, (0,200,0))
+            textSurface = textFont.render("Crashed!. Press Space to restart. " + "final score: " + str(score), False, (255,255,255))
             # return textSurface, textSurface.get_rect()
             textRect = textSurface.get_rect()
             
