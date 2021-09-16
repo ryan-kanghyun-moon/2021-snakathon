@@ -2,10 +2,7 @@
 # produces 2-d array according to the state of the game, snake, and food
 # checks crash
 from snake import Snake
-import numpy as np
-import random
 from food import Food
-import time
 class Game:
 
     def __init__(self, width, height):

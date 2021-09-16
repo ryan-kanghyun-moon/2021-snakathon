@@ -2,7 +2,6 @@
 # keeps track of food 
 import random
 import time
-import snake
 class Food:
     def __init__(self, s_x, s_y):
         x = self.get_rand_int(-5 , 5)
@@ -19,16 +18,15 @@ class Food:
         for x in range(width):
             for y in range(height):
                coords[y * width + x] = [x, y] 
-
+        added = 0
         for body in snake.get_body():
             pos = body[1] * width + body[0]
-            if pos < len(coords):
-                coords.pop(pos)
+            coords.pop(pos - added)
+            added += 1
         
         head = snake.get_head()
         pos = head[1] * width + head[0]
-        if pos < len(coords):
-            coords.pop(pos)
+        coords.pop(pos - added)
 
         return coords
 
