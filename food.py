@@ -18,15 +18,22 @@ class Food:
         for x in range(width):
             for y in range(height):
                coords[y * width + x] = [x, y] 
-        added = 0
-        for body in snake.get_body():
-            pos = body[1] * width + body[0]
-            coords.pop(pos - added)
-            added += 1
+
+        body = snake.get_body()
+        body.append(snake.get_head())
+
+        body.sort()
         
-        head = snake.get_head()
-        pos = head[1] * width + head[0]
-        coords.pop(pos - added)
+        flat_body = []
+        for block in body:
+            flat_body.append(block[1] * width + body[0])
+        
+        flat_body.sort()
+
+        added = 0
+        for elt in flat_body:
+            coords.pop(elt - added)
+            added += 1
 
         return coords
 
